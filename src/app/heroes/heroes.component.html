@@ -2,15 +2,11 @@
 
 <ul class="list-group mb-3">
     <li class="list-group-item d-flex justify-content-between align-items-center"
-    *ngFor="let hero of heroes"
-    [class.active]="hero === selectedHero"
-    (click)="onSelect(hero)">
+    *ngFor="let hero of heroes">
+      <a routerLink="/heroes/{{hero.id}}">
         {{ hero.name }}
-        <span class="badge badge-primary badge-pill">{{hero.id}}</span>
+      </a>
+      <span class="badge badge-primary badge-pill">{{hero.id}}</span>
     </li>
 </ul>
 
-<!-- ... -->
-<div *ngIf="selectedHero">
-  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
-</div>
