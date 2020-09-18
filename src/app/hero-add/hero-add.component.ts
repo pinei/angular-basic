@@ -1,0 +1,21 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-hero-add',
+  templateUrl: './hero-add.component.html',
+  styleUrls: ['./hero-add.component.css']
+})
+export class HeroAddComponent implements OnInit {
+  heroName = ''
+
+  @Output
+  add = new EventEmitter<string>()
+
+  constructor() { }
+
+  onAdd() {
+    this.add.emit(this.heroName)
+    this.heroName = ''
+  }
+
+}
