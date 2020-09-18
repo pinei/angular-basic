@@ -3,12 +3,13 @@ import { Hero } from '../model/hero';
 import { Observable, of } from  "rxjs";
 import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HeroService {
-    private heroesUrl = '/api/heroes'
+    private heroesUrl = `${environment.baseUrl}/heroes`
 
     constructor(private messageService: MessageService,
       private http: HttpClient) {}
