@@ -11,6 +11,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './service/in-memory-data.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, NgbModule, HttpClientModule
+    BrowserModule, FormsModule, AppRoutingModule, NgbModule, HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      delay: 2000
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
