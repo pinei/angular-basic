@@ -5,10 +5,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './hero-add.component.html',
   styleUrls: ['./hero-add.component.css']
 })
-export class HeroAddComponent implements OnInit {
+export class HeroAddComponent {
   heroName = ''
 
-  @Output
+  @Output()
   add = new EventEmitter<string>()
 
   constructor() { }
