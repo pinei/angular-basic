@@ -10,6 +10,7 @@ import { MessageService } from '../service/message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[]
+  filter = ''
 
   constructor(private heroService: HeroService,
     private messageService: MessageService) {}
@@ -39,5 +40,9 @@ export class HeroesComponent implements OnInit {
         if (typeof response != 'undefined')
           this.heroes = this.heroes.filter((heroItem) => heroItem != hero)
       })
+  }
+
+  onFilter(term: string) {
+    this.filter = term
   }
 }
